@@ -18,6 +18,7 @@ return {
     opts = {
         ensure_installed = {
             "bashls",
+            "powershell_es",
             "pyright"
         }
     }
