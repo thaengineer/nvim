@@ -61,7 +61,7 @@ vim.opt.backup = false
 vim.opt.writebackup = false
 vim.opt.swapfile = false
 
--- Bash / Python FileType
+-- Bash / Python / PowerShell FileType
 vim.filetype.add({
     extension = {
         sh = "bash",
@@ -69,6 +69,11 @@ vim.filetype.add({
         zsh = "bash",
         py = "python",
         pyi = "python",
+        ps1 = "ps1",
+        psm1 = "ps1",
+        psd1 = "ps1",
+        pssc = "ps1",
+        psrc = "ps1",
     },
     filename = {
         [".bashrc"] = "bash",
@@ -77,6 +82,11 @@ vim.filetype.add({
         [".zprofile"] = "bash",
         ["bashrc"] = "bash",
         ["zshrc"] = "bash",
+        ["Microsoft.PowerShell_profile.ps1"] = "ps1",
+        ["profile.ps1"] = "ps1",
+    },
+    pattern = {
+        [".*%.ps1%.xml"] = "ps1",
     },
 })
 
@@ -91,7 +101,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 
 -- Trim trailing whitespace on save
 vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = { "*.sh", "*.bash", "*.zsh", "*.py", "*.pyi" },
+    pattern = { "*.sh", "*.bash", "*.zsh", "*.py", "*.pyi", "*.ps1", "*.psm1", "*.psd1" },
     callback = function()
         if vim.bo.modifiable and not vim.bo.readonly then
             vim.cmd([[ %s/\s\+$//e ]])
