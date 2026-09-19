@@ -5,7 +5,7 @@ return {
         lazy     = false,
         priority = 1000,
         opts     = {
-            flavour    = "macchiato",
+            flavour    = "mocha",
             lsp_styles = {
                 underlines = {
                     errors      = { "undercurl" },
@@ -29,7 +29,7 @@ return {
         },
         config = function(_, opts)
             require("catppuccin").setup(opts)
-            vim.cmd.colorscheme("catppuccin-macchiato")
+            vim.cmd.colorscheme("catppuccin-mocha")
         end
     },
     {
